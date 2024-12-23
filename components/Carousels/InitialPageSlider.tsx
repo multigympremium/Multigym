@@ -28,7 +28,7 @@ export default function InitialPageSlider({ data }) {
         style={styles.pagerView}
         initialPage={0}
         ref={pagerRef}
-        onPageSelected={(e) => setCurrentIndex(e.nativeEvent.position)}
+        onPageSelected={(e) => setCurrentIndex(e.nativeEvent.position)} // Sync current index on manual swipe
       >
         {data.map((item, index) => (
           <View style={styles.page} key={index}>
