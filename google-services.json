@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "226606973961",
+    "project_id": "fir-authenticationprojec-880fd",
+    "storage_bucket": "fir-authenticationprojec-880fd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:226606973961:android:70194d9d1af449ce5da4d8",
+        "android_client_info": {
+          "package_name": "com.example.mulisports"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "226606973961-6l2p3vmndr1s6ta0o4d9mubqk4cdtoeg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBi_eoQyfC3bfEiuO9eUufOM1MS9Y18QkQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "226606973961-6l2p3vmndr1s6ta0o4d9mubqk4cdtoeg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

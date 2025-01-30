@@ -1,25 +1,23 @@
 {
   "expo": {
-    "name": "multi_gym_premium",
-    "slug": "multi_gym_premium",
+    "name": "muligymApp",
+    "slug": "muligymApp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
-    "splash": {
-      "image": "./assets/images/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
+    "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.anamul1998.muligymApp"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.anamul1998.muligymApp"
     },
     "web": {
       "bundler": "metro",
@@ -27,8 +25,39 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      "expo-router"
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#ffffff"
+        }
+      ],
+      [
+        "react-native-auth0",
+        {
+          "domain": "dev-heh3joup4drxixhj.us.auth0.com"
+        }
+      ]
     ],
+    "extra": {
+      "firebase": {
+        "apiKey": "AIzaSyAxUILeqy6LLIMCwCxS9vIpIgRhrlINkT8",
+        "authDomain": "webaps-af053.firebaseapp.com",
+        "projectId": "webaps-af053",
+        "storageBucket": "webaps-af053.appspot.com",
+        "messagingSenderId": "389910418395",
+        "appId": "1:389910418395:web:c98033557f9e1d44498dfe"
+      },
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "b04cff9f-b123-402d-b616-5a45803e5d31"
+      }
+    },
     "experiments": {
       "typedRoutes": true
     }
