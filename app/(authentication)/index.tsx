@@ -12,10 +12,22 @@ import { Link } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import InitialPageSlider from "@/components/Carousels/InitialPageSlider";
 import Animated from "react-native-reanimated";
-import { SignedIn, SignedOut, useUser } from "@clerk/clerk-expo";
+import {
+  SignedIn,
+  SignedOut,
+  useAuth,
+  useClerk,
+  useUser,
+} from "@clerk/clerk-expo";
+import * as Linking from "expo-linking";
 
 export default function BeforeAuth() {
   const { user } = useUser();
+  const { isSignedIn }: any = useAuth();
+  const { signOut }: any = useClerk();
+  console.log(Linking.createURL("/Home"), "Linking ");
+
+  console.log(isSignedIn, "isSignedIn");
 
   const data = [
     {
@@ -99,15 +111,13 @@ export default function BeforeAuth() {
               </Text>
             </Link>
           </TouchableOpacity>
-          <SignedIn>
-            <Text>Hello {user?.emailAddresses[0].emailAddress}</Text>
-          </SignedIn>
         </View>
         <View>
           <Text style={{ textAlign: "center" }}>
             By clicking "Get Started" you agree to our
           </Text>
         </View>
+
         <View style={styles.term_privacy}>
           <Text>
             <Link

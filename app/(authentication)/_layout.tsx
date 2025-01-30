@@ -1,11 +1,17 @@
 // app/(authentication)/_layout.tsx
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
-import { Link, Stack } from "expo-router";
-import { useAuth } from "@/context/AppContext"; // Assuming you have a custom AuthContext
+import { Link, Redirect, Stack } from "expo-router";
+import { useAuth } from "@clerk/clerk-expo";
 
 const AuthLayout = ({ children }: { children: React.ReactNode }) => {
   // const { user } = useAuth(); // Assuming the `useAuth` hook provides the user state
+
+  const { isSignedIn } = useAuth();
+
+  if (isSignedIn) {
+    return <Redirect href={"/Home"} />;
+  }
 
   return <Stack screenOptions={{ headerShown: false }}></Stack>;
 };

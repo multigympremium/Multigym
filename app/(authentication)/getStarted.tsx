@@ -5,7 +5,7 @@ import { StatusBar } from "expo-status-bar";
 import Animated from "react-native-reanimated";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import Entypo from "@expo/vector-icons/Entypo";
-import { useAuth, useOAuth } from "@clerk/clerk-expo";
+import { useAuth, useClerk, useOAuth } from "@clerk/clerk-expo";
 import * as Linking from "expo-linking";
 import Toast from "react-native-toast-message";
 import * as WebBrowser from "expo-web-browser";
@@ -26,6 +26,7 @@ export const useWarmUpBrowser = () => {
 
 export default function GetStarted() {
   const [loading, setLoading] = useState(false);
+
   useWarmUpBrowser();
 
   const handleSocialPopupLogin = useCallback(async (strategy) => {

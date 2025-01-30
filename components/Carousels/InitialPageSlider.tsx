@@ -115,10 +115,12 @@ export default function InitialPageSlider({ data }) {
 
   // Autoplay effect
   useEffect(() => {
-    startAutoplay();
+    if (flatListRef.current || intervalRef.current) {
+      startAutoplay();
+    }
 
     return () => stopAutoplay();
-  }, [currentIndex]);
+  }, [currentIndex, flatListRef, intervalRef]);
 
   const startAutoplay = () => {
     if (intervalRef.current) clearInterval(intervalRef.current);

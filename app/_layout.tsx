@@ -90,7 +90,7 @@ import { useColorScheme } from "@/hooks/useColorScheme";
 import ContextProvider from "@/context/AppContext";
 import { tokenCache } from "@/cache";
 import { ClerkProvider, ClerkLoaded, useAuth } from "@clerk/clerk-expo";
-
+import * as Linking from "expo-linking";
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
@@ -124,7 +124,8 @@ export default function RootLayout() {
           <ThemeProvider
             value={colorScheme === "dark" ? DarkTheme : DefaultTheme}
           >
-            <AuthHandler />
+            <Slot />
+            {/* <AuthHandler /> */}
           </ThemeProvider>
         </ContextProvider>
       </ClerkLoaded>
@@ -132,12 +133,12 @@ export default function RootLayout() {
   );
 }
 
-function AuthHandler() {
-  const { isSignedIn } = useAuth();
+// function AuthHandler() {
+//   const { isSignedIn } = useAuth();
 
-  if (isSignedIn) {
-    return <Redirect href={"/"} />;
-  }
+//   if (isSignedIn) {
+//     return <Redirect href={"/"} />;
+//   }
 
-  return <Slot />;
-}
+//   return <Slot />;
+// }

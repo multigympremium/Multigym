@@ -4,6 +4,7 @@ import { Text, View, TouchableOpacity, StyleSheet } from "react-native";
 import { useOAuth } from "@clerk/clerk-expo";
 import * as Linking from "expo-linking";
 import { AntDesign, Entypo } from "@expo/vector-icons";
+import { useRouter } from "expo-router";
 
 export const useWarmUpBrowser = () => {
   React.useEffect(() => {
@@ -19,6 +20,7 @@ export const useWarmUpBrowser = () => {
 WebBrowser.maybeCompleteAuthSession();
 
 export default function AppleLogin() {
+  const router = useRouter();
   useWarmUpBrowser();
 
   const { startOAuthFlow } = useOAuth({ strategy: "oauth_apple" });
@@ -28,12 +30,13 @@ export default function AppleLogin() {
     try {
       const { createdSessionId, signIn, signUp, setActive } =
         await startOAuthFlow({
-          redirectUrl: Linking.createURL("/dashboard", { scheme: "myapp" }),
+          redirectUrl: Linking.createURL("/Home"),
         });
 
       // If sign in was successful, set the active session
       if (createdSessionId) {
         setActive!({ session: createdSessionId });
+        // router.push("/Home");
       } else {
         // Use signIn or signUp returned from startOAuthFlow
         // for next steps, such as MFA
